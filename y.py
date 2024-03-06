@@ -22,7 +22,7 @@ def download_video(url, video_format, output_path=None):
     except Exception as e:
         print(f"[!] Error occurred: {e} [!]")
 
-def download_videos_from_list(file_path, video_format="mp4", output_path=None):
+def download_videos_from_list(file_path, video_format, output_path=None):
     try:
         with open(file_path, "r") as file:
             urls = file.readlines()
