@@ -41,9 +41,12 @@ if __name__ == "__main__":
     parser.add_argument("-fl", "--file", type=str, help="Path to the file containing list of YouTube video URLs")
     parser.add_argument("-f", "--format", type=str, default="mp4", help="Desired video format (e.g., mp4, webm)")
     parser.add_argument("-o", "--output", type=str, default=None, help="Output directory")
+    parser.add_argument("-u", "--url", type=str, default=None, help="URL of the YouTube video to download")
     args = parser.parse_args()
 
-    if args.file:
+    if args.url:
+        download_video(args.url, video_format=args.format, output_path=args.output)
+    elif args.file:
         download_videos_from_list(args.file, video_format=args.format, output_path=args.output)
     else:
         parser.print_help()
